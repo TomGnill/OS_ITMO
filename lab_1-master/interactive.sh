@@ -20,54 +20,86 @@ case $command in
   interactive
  fi
  echo "выберите действие:sum(+)/sub(-)/mul(*)/div(/):"; read calc_command
+ if [[ -z "$calc_command" ]]; then
+ echo "Error: вы не передали арифм. действие!">&2; exit -6
+ interactive
+ fi
  echo "первое число:"; read first
+ if [[ -z "$first" ]]; then
+ echo "Error: вы не ввели число">&2; exit -6
+ interactive
+ fi
  echo "второе число:"; read second
+ if [[ -z "$second" ]]; then
+ echo "Error: вы не передали второе число">&2; exit -6
+ interactive
+ fi
  echo "Ответ:"; calc "$calc_command" "$first" "$second"
  echo " "
- interactive
+ interactve
 ;;
  s|search)
   if [ "$sea_er" = "1" ]; then
   echo "Error:  действие недоступно" >&2;
-  interactive 
-  fi
-  echo"Введите слово или выражение:"; read sea_str
-  echo"Введите директорию поиска:"; read sea_dir
- if ! [ -d "$sea_dir" ]; then
-  echo"Error: директории несуществует" >&2;
   interactive
-fi
-  search "$sea_str" "$sea_dir"
+  fi
+  echo "Введите директорию поиска:"; read sea_dir
+  if [[ -z "sea_dir" ]]; then
+  echo "Error: вы не передали директорию!">&2; exit -6
+  interactive
+  fi
+  echo "Введите выражение:"; read sea_str
+  if [[ -z "sea_str" ]]; then
+  echo "Error: вы не передали выражение/строку">&2; exit -6
+  interactive
+  fi
+  if ! [[ -d "$sea_dir" ]]; then
+  echo "Error: директории несуществует" >&2;
+  interactive
+  fi
+  search "$sea_dir" "$sea_str"
   echo " "
   interactive
 ;;
  r|reverse)
   if [ "$rev_er" = "1" ]; then
    echo "Error: действие недоступно" >&2;
-  interactive
-   echo"Введите название папки с файлом"; read rev_dir1
-   echo"Введите название папки в которую файл будет перенесён"; read rev_dir2
-  fi
-  reverse "$rev_dir1" "$rev_dir2"
-  echo" "
-  interactive
+   interactive
+   fi
+   echo "Файл ввода:"; read rev_fil1
+   if [[ -z "rev_fil1" ]]; then
+   echo "Error: вы не ввели файл ввода">&2; exit -2
+   interactive
+   fi
+   echo "Файл вывода:"; read rev_fil2
+   if [[ -z "rev_fil2" ]]; then
+   echo "Error: вы не ввели файл вывода!">&2; exit -2
+   interactive
+   fi
+   reverse "$rev_fil1" "$rev_fil2"
+   echo " "
+   interactive
 ;;
  n|strlen)
   if [ "$str_er" = "1" ]; then
    echo "Error: действие недоступно" >&2;
    interactive
   fi
-   echo"Введите строку:"; read string
+   echo "Введите строку:"; read string
+   if [[ -z "string" ]]; then
+   echo "Error: вы не передали строку">&2; exit -2
+   interactive
+   fi
    strlen  "$string"
    echo " "
    interactive
 ;;
  l|log)
   if [ "$log_er" = "1" ]; then
-   echo"Error: действие недоступно" >&2;
+   echo "Error: действие недоступно" >&2;
    interactive
   fi
-    log "var/log/anaconda/X.log"
+    log "/var/log/anaconda/X.log"
     echo " "
     interactive
 ;;
