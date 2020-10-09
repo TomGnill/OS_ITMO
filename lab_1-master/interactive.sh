@@ -86,11 +86,15 @@ case $command in
    interactive
   fi
    echo "Введите строку:"; read string
-   if [[ -z "string" ]]; then
+   eval "str=($string)"
+   if [[ -z "str"]]; then
+   echo "0"
+   fi
+   if [[ -z $string ]]; then
    echo "Error: вы не передали строку">&2; exit -2
    interactive
    fi
-   strlen  "$string"
+   strlen  "$str"
    echo " "
    interactive
 ;;
