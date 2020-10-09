@@ -6,7 +6,6 @@ fi
 if [[ -z "$1" ]]; then
 echo "Error: вы не передали строку">&2; exit -6
 fi
-   somevar="$1"
-   size=${#somevar}
-   echo "$size"
+   string="$@"
+   echo "${#string}"
 }
