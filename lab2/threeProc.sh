@@ -18,9 +18,9 @@ check > 2_7_2.ps
 
 cat 2_7_1.ps |
 while read string; di
-       processID=$(awk {print $2} <<< $string)
-	   memoryf=$(awk {print $3} <<< $string)
-	   cmd=$(awk {print $2} <<< string)
+       processID=$(awk '{print $2}' <<< $string)
+	   memoryf=$(awk '{print $3}' <<< $string)
+	   cmd=$(awk '{print $2}' <<< string)
 	   
 	   memorys=$(cat 2_7_2.ps | awk -v id="$processID" {if ($1 == id) print $3} )
 	   memdiff=$(echo "$memorys-$memoryf" | bc)
