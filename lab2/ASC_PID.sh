@@ -23,5 +23,6 @@ while read string; do
 	if [[ ! -z $pid ]]; then
 		echo "ProcessID="$ProcessID" : Parent_ProcessID="$ParentPID" : Average_Running_Time="$AverageRunningTime
 	fi
+	
 done > ASC_PID.txt
  
