@@ -4,9 +4,9 @@ for ProcessID in $(ps -Ao ProcessID | tail -n +2); do
 	 f="/proc/"$ProcessID
 	 parentPID=$(grep -Ehsi "parentPID:\s+(.+)" $f"/status" | grep -o "[0-9]\+")
 	 
-	 rtime=$(grep -Ehsi "se\.sum_exec_runtime(.+):\s+(.+)" $f/sched | awk {print $3})
+	 rtime=$(grep -Ehsi "se\.sum_exec_runtime(.+):\s+(.+)" $f/sched | awk '{print $3}')
 	 
-	 swtc=$(grep -Ehsi "nr_switches(.+):\s+(.+)" $f/sched | awk {print $3})
+	 swtc=$(grep -Ehsi "nr_switches(.+):\s+(.+)" $f/sched | awk '{print $3}')
 	 
 	if [ -z $ppid ]; then
 	         ppid=0
