@@ -9,7 +9,7 @@ for ProcessID in $(ps -Ao ProcessID | tail -n +2); do
 	 swtc=$(grep -Ehsi "nr_switches(.+):\s+(.+)" $f/sched | awk '{print $3}')
 	 
 	if [ -z $ppid ]; then
-	         ppid=0
+	       ppid=0
 	fi
 	if [ -z $rtime ] || [ -z $swtc]; then
  	      AvaregeRunningTime=0
