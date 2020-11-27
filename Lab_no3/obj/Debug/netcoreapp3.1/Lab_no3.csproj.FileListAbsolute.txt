@@ -1,0 +1,13 @@
+C:\Users\Андрейка\source\repos\Lab_no3\SOSI\Lab_no3\Lab_no3\obj\Debug\netcoreapp3.1\Lab_no3.csprojAssemblyReference.cache
+C:\Users\Андрейка\source\repos\Lab_no3\SOSI\Lab_no3\Lab_no3\obj\Debug\netcoreapp3.1\Lab_no3.AssemblyInfoInputs.cache
+C:\Users\Андрейка\source\repos\Lab_no3\SOSI\Lab_no3\Lab_no3\obj\Debug\netcoreapp3.1\Lab_no3.AssemblyInfo.cs
+C:\Users\Андрейка\source\repos\Lab_no3\SOSI\Lab_no3\Lab_no3\obj\Debug\netcoreapp3.1\Lab_no3.csproj.CoreCompileInputs.cache
+C:\Users\Андрейка\source\repos\Lab_no3\SOSI\Lab_no3\Lab_no3\bin\Debug\netcoreapp3.1\Lab_no3.exe
+C:\Users\Андрейка\source\repos\Lab_no3\SOSI\Lab_no3\Lab_no3\bin\Debug\netcoreapp3.1\Lab_no3.deps.json
+C:\Users\Андрейка\source\repos\Lab_no3\SOSI\Lab_no3\Lab_no3\bin\Debug\netcoreapp3.1\Lab_no3.runtimeconfig.json
+C:\Users\Андрейка\source\repos\Lab_no3\SOSI\Lab_no3\Lab_no3\bin\Debug\netcoreapp3.1\Lab_no3.runtimeconfig.dev.json
+C:\Users\Андрейка\source\repos\Lab_no3\SOSI\Lab_no3\Lab_no3\bin\Debug\netcoreapp3.1\Lab_no3.dll
+C:\Users\Андрейка\source\repos\Lab_no3\SOSI\Lab_no3\Lab_no3\bin\Debug\netcoreapp3.1\Lab_no3.pdb
+C:\Users\Андрейка\source\repos\Lab_no3\SOSI\Lab_no3\Lab_no3\obj\Debug\netcoreapp3.1\Lab_no3.dll
+C:\Users\Андрейка\source\repos\Lab_no3\SOSI\Lab_no3\Lab_no3\obj\Debug\netcoreapp3.1\Lab_no3.pdb
+C:\Users\Андрейка\source\repos\Lab_no3\SOSI\Lab_no3\Lab_no3\obj\Debug\netcoreapp3.1\Lab_no3.genruntimeconfig.cache
