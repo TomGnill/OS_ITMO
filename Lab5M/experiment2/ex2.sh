@@ -3,6 +3,7 @@
 K=$1
 N=$2
 
-for i in $(seq 1 $K); do
-	./newmem.bash $N&
+for ((counter=0 ; counter < $K ; counter++ ))
+ do
+	./newmem.bash $2&
 done
