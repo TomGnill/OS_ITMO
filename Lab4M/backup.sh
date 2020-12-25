@@ -7,17 +7,8 @@ LastBackup="$HOMEDIR/Backup-$(LastBackupDate)"
 
 NowDate=$(date +"%Y-%m-%d")
 
-if [[ $(echo "(${$(date -d "$NowDate" +"%s")} - ${$(date -d "LastBackupDate" +"%s")}) / 60 / 60 / 24" | bc ) > 7 || -z "$LastBackupDate" ]];
+if [[ $(echo "(${$(date -d "$NowDate" +"%s")} - ${$(date -d "LastBackupDate" +"%s")}) / 60 / 60 / 24" | bc ) < 7 || ! -z "$LastBackupDate" ]];
 then
-	mkdir "$HOMEDIR/Backup-${NowDate}"
-	   for file in $(ls $HOMEDIR/source); do
-		   cp "$HOMEDIR/source/$file" "$HOMEDIR/Backup-$NowDate"
-	   done
-	   
-	      flist=$(ls $HOMEDIR/source | sed "s/^/\t/")
-	      echo -e "${NowDate}. Created:\n${flist}" >> $HOMEDIR/.backup-report
-	      
-else
 	changes=""
 	 for file in $(ls $HOMEDIR/source); do
 	      if [[ -f "LastBackup/$file" ]];
@@ -39,5 +30,13 @@ else
     if[[ ! -z "$changes" ]];
     then
 	  echo -e "${LastBackupDate}. Updated:\n${changes}" >> $HOMEDIR/.backup-report
+else
+	mkdir "$HOMEDIR/Backup-${NowDate}"
+	   for file in $(ls $HOMEDIR/source); do
+		   cp "$HOMEDIR/source/$file" "$HOMEDIR/Backup-$NowDate"
+	   done
+	   
+	      flist=$(ls $HOMEDIR/source | sed "s/^/\t/")
+	      echo -e "${NowDate}. Created:\n${flist}" >> $HOMEDIR/.backup-report
        fi
 fi
