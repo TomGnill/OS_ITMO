@@ -23,7 +23,7 @@ do
 					echo $result
 				;;
 				"*")
-					result=$(($result * $arifm)
+					result=$(($result * $arifm))
 					echo $result
 				;;	
 			esac
