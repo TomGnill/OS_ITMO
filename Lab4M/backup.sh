@@ -22,9 +22,7 @@ else
 	 for file in $(ls $HOMEDIR/source); do
 	      if [[ -f "LastBackup/$file" ]];
 	      then
-		sourceSize=$(wc -c "$HOMEDIR/source/${file}" | awk '{print $1}')
-		BackupSize=$(wc -c "${LastBackup}/${file}" | awk '{print $1}')
-		Size=$(echo "${sourceSize} - ${BackupSize}" | bc )
+		Size=$(echo "${$(wc -c "$HOMEDIR/source/${file}" | awk '{print $1}')} - ${$(wc -c "${LastBackup}/${file}" | awk '{print $1}')}" | bc )
 
 			if [[ $Size != 0 ]];
 			then
