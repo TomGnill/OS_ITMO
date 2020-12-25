@@ -2,18 +2,16 @@
 
 while true;
 do
-	read line
-	echo "$line" > pipe
+	read arifm
+	echo "$arifm" > pipe
 
-	if [[ "$line" == "QUIT" ]];
-	then
-		echo "Finish!"
+	if [[ "$arifm" == "QUIT" ]];	then
+		echo "Finish"
 		exit 0
 	fi
 
-	if [[ "$line" != "+" && "$line" != "*" && "$line" != [0-9] ]];
-	then
-		echo "Error command: generator"
+	if [[ "$arifm" != "+" && "$arifm" != "*" && "$arifm" != [0-9] ]];then
+		echo "You can enter only +, * and numbers 0-9 !"
 		exit 1
 	fi
 done

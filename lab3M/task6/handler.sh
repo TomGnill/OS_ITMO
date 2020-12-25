@@ -1,37 +1,32 @@
 #!/bin/bash
 
 result=1
-command="+"
-
+operation="+"
 TERM()
 {
-	echo "Finish"
+	echo "End"
 	exit 0
 }
-
 SIG1()
 {
-	command="+"
+	operation="+"
 }
-
 SIG2()
 {
-	command="*"
+	operation="*"
 }
-
-trap 'TERM' SIGTERM
-trap 'SIG1' USR1
-trap 'SIG2' USR2
-
-while true;
-do
-	case "$command" in
-		"+")
-			result=$(($result + 2))
-		;;
-		"*")
-			result=$(($result * 2))
-		;;
+trap "TERM" SIGTERM
+trap "SIG1" USR1
+trap "SIG2" USR2
+	while true;
+		do
+		case "$operation" in
+			"+")
+				result=$(($result + 2))
+			;;
+			"*")
+				result=$(($result * 2))
+			;;
 	esac
 	echo $result
 	sleep 1

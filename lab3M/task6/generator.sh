@@ -3,9 +3,15 @@
 while true;
 do
 	read line
+
+	if [[ $line != "+" || $line != "*" ]]
+	echo "Error"
+	exit 1
+	fi
+
 	case "$line" in
 		"TERM")
-			kill -TERM $1
+			kill -SIGTERM $1
 			exit 0
 		;;
 		"+")
@@ -13,9 +19,6 @@ do
 		;;
 		"*")
 			kill -USR2 $1
-		;;
-		*)
-			continue
 		;;
 	esac
 done

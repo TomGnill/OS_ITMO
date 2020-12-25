@@ -1,7 +1,7 @@
 #!/bin/bash
 
-result=0
+result=1
 while true;
 do
-	result=$result+1;
+	result=$result*2;
 done

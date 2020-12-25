@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sh handler.sh&a=$!
-sh generator.sh $a
+./handler.sh&a=$!
+./generator.sh $1

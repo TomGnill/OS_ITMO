@@ -1,41 +1,39 @@
 #!/bin/bash
 
-command="+"
-echo "Mode plus: handler"
+cmd="+"
+echo "You use plus"
 result=1
 tail -f pipe |
 while true;
 do
-	read line
-	case $line in
+	read arifm
+	case $arifm in
 		"+")
-			command="$line"
-			echo "Switched plus: handler"
+			cmd="$arifm"
+			echo "You use plus"
 		;;
 		"*")
-			command="$line"
-			echo "Switched multi: handler"
-		;;
-		"QUIT")
-			killall tail
-			echo "Quit: handler"
-			exit 0
+			cmd="$arifm"
+			echo "You use multi"
 		;;
 		[0-9])
-			case $command in
+			case $cmd in
 				"+")
-					result=$(($result + $line))
+					result=$(($result + $arifm))
 					echo $result
 				;;
 				"*")
-					result=$(($result * $line))
+					result=$(($result * $arifm)
 					echo $result
-				;;
 			esac
+		;;
+		"exit")
+			killall tail
+			exit 0
 		;;
 		*)
 			killall tail
-			echo "Error: handler"
+			echo "Error"
 			exit 1
 		;;
 	esac
