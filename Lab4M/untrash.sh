@@ -5,15 +5,12 @@ TrashLog=~/.trash.log
 HOMEDIR="/home/user"
 name=$1
 
-if [[ $# > 1 || $# < 1 || ! -d $TrashDir || ! -f $TrashLog || ! "`echo $1 | sed 's/[a-z,0-9,_,-]*//'`" == "" ]];
+if [[ $# != 1 || ! -d $TrashDir || ! -f $TrashLog || ! "`echo $1 | sed 's/[a-z,0-9,_,-]*//'`" == "" ]];
 then
 	echo "Bad situation"
 	exit 1
 fi
 
-if [ $a != $file]; then
-	echo "Error"
-	exit 1
 fi
 
 restore() {
@@ -26,7 +23,7 @@ grep $name $TrashLog |
 while read filepath; do
          file=$(echo $filepath | cut -d " " -f 1)
     	 del=$(echo $filepath | cut -d " " -f 2)
-	 
+
         read -p "${FN} Continue?" yn
         case "$yn" in
 		"y")
