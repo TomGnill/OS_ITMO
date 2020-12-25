@@ -10,9 +10,6 @@ then
 	echo "Bad situation"
 	exit 1
 fi
-
-fi
-
 restore() {
 	path=$1
 	file=$2
