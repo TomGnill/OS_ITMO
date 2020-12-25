@@ -25,6 +25,7 @@ do
 				"*")
 					result=$(($result * $arifm)
 					echo $result
+				;;	
 			esac
 		;;
 		"exit")
