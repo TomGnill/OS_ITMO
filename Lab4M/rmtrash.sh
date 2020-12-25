@@ -2,27 +2,24 @@
 
 LABDIR = "/home/user/Lab4M"
 TRASHDIR = "/home/user/.trash"
-if[[ $# > 1 || $# < 1 || ! -f $1 ]];
+if[[ $# != 1 || ! -f $1 ]];
 then
 	echo "Error in arg."
 	exit 1
 fi
-if [[ ! -e "/home/user/.trash" ]];
-then
+if [[ ! -e $TRASHDIR ]]; then
 	mkdir /home/user/.trash
-	
 fi
 
-value=$(find "$TRASHDIR/" -type f -name "[1-9]" | sed -e 's,.trash/,,')
-value=$(echo $value | awk '{print NF}')
-
-if [ -z $value ];
-then
-	ln "$LABDIR/"$1 "$TRASHDIR/1"
-else
-	value=$(($value + 1))
-	ln "$LABDIR/"$1 "$TRASHDIR/"$value
+if [[ ! -f ~/.trash.log ]]; then
+	 touch /home/user/.trash.log
 fi
-
+value=0
+Trash=$1-$value
+while [[ -f $TRASHDIR/$Trash ]]; do
+  len value++
+  Trash = $1-$value
+done
+ln $Trash $TRASHDIR/$Trash
 echo $(readlink -f $1) $value >> /home/user/.trash.log
 rm $1
