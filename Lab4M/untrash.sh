@@ -34,6 +34,7 @@ while read filepath; do
         		rm $TrashDir/$del && {
             		sed -i "#$filepath#d" $TrashLog
             		echo "Restored $file"
+		   ;;
 	 	   *)
           	    echo "Bad choice"
 	  	    continue
